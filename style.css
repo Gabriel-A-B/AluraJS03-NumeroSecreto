@@ -11,12 +11,13 @@
 }
 
 body {
+    width: 80%;
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 0;
+    margin: auto;
     padding: 20% 0%;
     color: var(--primary-color);
     font-family: var(--fonte-principal);
@@ -51,10 +52,12 @@ h3 {
     border: 5px solid var(--efeitos);
     box-shadow: 0px 0px 1em var(--efeitos);
     display: inline-block;
-    width: 100%;
+    margin: auto;
+    width: 50%;
 }
 
 .dica {
+    text-align: center;
     display: flex;
     align-items: center;
 }
@@ -76,4 +79,16 @@ h3 {
     padding: 0.5em;
     box-shadow: 0px 0px 1em var(--efeitos);
     margin: 5px 5px;
+}
+
+@media screen and (min-width: 800px){
+ 
+    body {
+        width: 100%;
+    }
+
+    .box {
+        width: 90%;
+    }
+
 }
