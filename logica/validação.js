@@ -1,5 +1,6 @@
 function verificaValidação(resposta) {
     const numero = +resposta
+    
 
     if(respostaForInvalida(numero)) {
         elementoChute.innerHTML += `
@@ -15,6 +16,7 @@ function verificaValidação(resposta) {
         <h2> Parabens, voce acertou o Numero Secreto!! </h2>
         <h3> De tantas possibilidades, voce mirou no meio do Alvo!! </h3>
         `
+        Restart()
     }else if(numero > numeroSecreto) {
         elementoChute.innerHTML += `
         <div class="dica">O numero secreto e menor que a sua resposta, tente denovo
@@ -40,4 +42,16 @@ function respostaForInvalida(numero) {
 
 function passouDoLimite(numero) {
    return numero > maiorValor || numero < menorValor
+}
+
+function Restart() {
+    const btn = document.createElement('button')
+    btn.textContent = 'Restart'
+    btn.classList.add('button')
+
+    document.body.append(btn)
+
+    btn.onclick = () => {
+        window.location.reload()
+    }
 }
