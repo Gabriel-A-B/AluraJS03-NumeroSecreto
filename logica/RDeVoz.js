@@ -1,4 +1,6 @@
 const elementoChute = document.querySelector('#chute')
+const modo = document.querySelector('.modo')
+let tentativas = 0
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -24,6 +26,7 @@ function mostrarResultado(resposta) {
     <div>Voce disse:</div>
     <span class="box">${resposta}</span>
     `
+    modo.style.display = 'none'
 }
 
 recognition.addEventListener('end', () => recognition.start())

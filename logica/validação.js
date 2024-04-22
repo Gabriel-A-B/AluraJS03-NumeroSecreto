@@ -1,7 +1,37 @@
+const modoSolo = document.getElementById('modo-check')
+
 function verificaValidação(resposta) {
+    debugger
     const numero = +resposta
     
+    if(modoSolo.checked){
+    tentativas += 1
 
+    if(tentativas < 10){
+        Situacoes(numero)
+        return
+    }else {
+        document.body.innerHTML = `
+            <h2> GameOver!! </h2>
+            <h3> Que pena, voce gastou todas as suas tentaivas, tente novamente!! </h3>
+            `
+        Restart()
+    }
+    return
+    }else {
+        Situacoes(numero)
+    }
+}
+
+function respostaForInvalida(numero) {
+    return Number.isNaN(numero)
+}
+
+function passouDoLimite(numero) {
+   return numero > maiorValor || numero < menorValor
+}
+
+function Situacoes(numero) {
     if(respostaForInvalida(numero)) {
         elementoChute.innerHTML += `
         <div>Valor Invalido</div>
@@ -34,14 +64,6 @@ function verificaValidação(resposta) {
         </div>
         `
     }
-}
-
-function respostaForInvalida(numero) {
-    return Number.isNaN(numero)
-}
-
-function passouDoLimite(numero) {
-   return numero > maiorValor || numero < menorValor
 }
 
 function Restart() {
